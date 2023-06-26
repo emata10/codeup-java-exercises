@@ -1,17 +1,18 @@
 package util;
 import java.util.Scanner;
- class Input {
-     private Scanner scanner;
+ public class Input {
+      static Scanner scanner;
 
      public Input() {
          this.scanner = new Scanner(System.in);
      }
 
-     public String getString() {
+     public static String getString() {
          return scanner.nextLine();
      }
 
      public boolean yesNo() {
+
          String input = scanner.nextLine().toLowerCase();
          return input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes");
      }
@@ -31,7 +32,7 @@ import java.util.Scanner;
          return userInput;
      }
 
-     public int getInt() {
+     public static int getInt(String s) {
          while (!scanner.hasNextInt()) {
              String invalidInput = scanner.next();
              System.out.printf("Invalid input: %s. Please enter an integer: ", invalidInput);
@@ -85,7 +86,7 @@ import java.util.Scanner;
         System.out.printf("You entered: %d%n", intRangeInput);
 
         System.out.print("Enter an integer: ");
-        int intInput = input.getInt();
+        int intInput = input.getInt("Enter your choice: ");
         System.out.printf("You entered: %d%n", intInput);
 
         System.out.print("Enter a decimal number between 1.0 and 10.0: ");
