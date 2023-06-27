@@ -33,11 +33,3 @@ public class ArraysExercises {
         return updatedPersons;
     }
 }
-
-
-
-
-
-    
-
-
