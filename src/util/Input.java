@@ -17,7 +17,7 @@ import java.util.Scanner;
          return input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes");
      }
 
-     public int getInt(int min, int max) {
+     public int getInt(int min, int max, String s) {
          int userInput;
          do {
              System.out.printf("Enter an integer between %d and %d: ", min, max);
@@ -82,7 +82,7 @@ import java.util.Scanner;
         System.out.printf("You entered: %b%n", yesNoInput);
 
         System.out.print("Enter an integer between 1 and 10: ");
-        int intRangeInput = input.getInt(1, 10);
+        int intRangeInput = input.getInt(1, 10, "Enter your choice: ");
         System.out.printf("You entered: %d%n", intRangeInput);
 
         System.out.print("Enter an integer: ");
