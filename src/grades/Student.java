@@ -2,13 +2,17 @@ package grades;
 
 import java.util.ArrayList;
 
-public class Student {
+class Student {
     private String name;
-    public ArrayList<Integer> grades;
+    private ArrayList<Integer> grades;
+    private String gradesAsString;
 
     public Student(String name, int[] ints) {
         this.name = name;
         this.grades = new ArrayList<>();
+    }
+
+    public Student(String johnDoe) {
     }
 
     // Getters and setters for name and grades properties
