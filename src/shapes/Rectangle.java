@@ -5,6 +5,10 @@ public class Rectangle extends Quadrilateral implements Quadrilateral.Measurable
         super(length, width, side, side);
     }
 
+    public Rectangle(double length, double width, double side, double v) {
+        super(length, width, side, v);
+    }
+
     @Override
     public void setLength(double length) {
 
