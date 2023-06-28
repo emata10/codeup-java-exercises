@@ -2,11 +2,11 @@ package grades;
 
 import java.util.ArrayList;
 
-class Student {
+public class Student {
     private String name;
-    private ArrayList<Integer> grades;
+    public ArrayList<Integer> grades;
 
-    public Student(String name) {
+    public Student(String name, int[] ints) {
         this.name = name;
         this.grades = new ArrayList<>();
     }
@@ -32,5 +32,9 @@ class Student {
         }
         return sum / grades.size();
 
+    }
+
+    public double getGradesAsString() {
+        return getGradeAverage();
     }
 }
