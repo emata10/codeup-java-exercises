@@ -1,6 +1,4 @@
 package movies;
-import movies.MoviesArray;
-import util.Input;
 
 
 public class MoviesApplication {
