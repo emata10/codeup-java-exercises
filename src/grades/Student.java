@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class Student {
     private String name;
     private HashMap<String, String> attendance;
+    private String gradeAverage;
 
     public Student(String name) {
         this.name = name;
@@ -35,6 +36,7 @@ public class Student {
 
     public double getGradeAverage() {
         int sum = 0;
+        int[] grades = new int[0];
         for (int grade : grades) {
             sum += grade;
         }
