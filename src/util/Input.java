@@ -1,8 +1,7 @@
 package util;
 import java.util.Scanner;
  public class Input {
-     Private Scanner
-     scanner;
+     private Scanner scanner;
 
      public Input() {
          this.scanner = new Scanner(System.in);
@@ -80,7 +79,7 @@ import java.util.Scanner;
 
      public int getHex() {
          try {
-             return Integer.valueOf(getString("Please enter a hexadecimal number");
+             return Integer.valueOf(getString("Please enter a hexadecimal number"));
          } catch(NumberFormatException e) {
              System.out.println("Hey that's not going to work....");
              return getInt();
