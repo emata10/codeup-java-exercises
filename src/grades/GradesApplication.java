@@ -1,43 +1,78 @@
 package grades;
+import util.Input;
+
 import java.util.HashMap;
 public class GradesApplication {
     public static void main(String[] args) {
         HashMap<String, Student> students = new HashMap<>();
 
-        // populate the students map with data, e.g.
+            Student student1 = new Student("Loki");
+            Student student2 = new Student("Roxy");
+            Student student3 = new Student("Nami");
+
+            student1.addGrade(100);
+            student1.addGrade(98);
+            student1.addGrade(99);
+            student1.addGrade(97);
+            student1.addGrade(92);
+            student1.addGrade(99);
+            student2.addGrade(95);
+            student2.addGrade(85);
+            student2.addGrade(80);
+            student2.addGrade(82);
+            student2.addGrade(100);
+            student2.addGrade(95);
+            student3.addGrade(95);
+            student3.addGrade(85);
+            student3.addGrade(80);
+            student3.addGrade(82);
+
+            students.put("Loki123", student1);
+            students.put("Roxy456", student2);
+            students.put("nami789", student3);
 
 
-        Student Student1 = new Student();
-        Student1.setName("Max Payne");
-        Student1.setGradeAverage("A");
-        Student student1 = null;
-        students.put("max123", student1);
+        Input in = new Input();
 
-        Student Student2 = new Student();
-        Student2.setName("Betty White");
-        Student2.setGradeAverage("A");
-        Student student2 = null;
-        students.put("betty000", student2);
+        boolean resp = true;
+
+        while(resp) {
+
+            System.out.println("Welcome!\n");
+
+            System.out.println("Here are the GitHub usernames of our students: \n");
+
+            String s = "";
+            for (String key : students.keySet()) {
+                s += " | " + key;
+            }
 
 
-        Student Student3 = new Student();
-        Student3.setName("Will Smith");
-        Student3.setGradeAverage("B");
-        Student student3 = null;
-        students.put("willyboy123", student3);{
+            System.out.println(s + " |\n");
+
+            System.out.println("Which student would you like information about?");
+
+            String userInput = in.getString();
+
+            if(students.containsKey(userInput)) {
+
+
+                System.out.printf("Student Name: \"%s\";%nStudent GitHub Username: \"%s\";%nStudent Grade Average: %.2f;%n", students.get(userInput).getName(), userInput, students.get(userInput).getGradeAverage());
+
+//            students.get(userInput).getName();
+//            userInput;
+//            students.get(userInput).getGradeAverage();
+
+            } else {
+                System.out.println("I'm sorry, but that username is not valide.");
+            }
+
+            System.out.println("Do you wish to continue?\n");
+
+            resp = in.yesNo();
+
         }
-
-        // iterate over the students map and print details
-        for (String username : students.keySet()) {
-            System.out.println("Username: " + username);
-            Student student = students.get(username);
-            System.out.println("Name: " + student.getName());
-            System.out.println("Grades: " + student.getGradeAverage());
-            System.out.println();
-        }
-
-
-
+        System.out.println("Thank you have a great day!");
 
     }
 }

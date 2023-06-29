@@ -5,39 +5,34 @@ import java.util.HashMap;
 
 public class Student {
     private String name;
-    private HashMap<String, String> attendance;
+
+    public ArrayList<Integer> grades;
+
 
     public Student(String name) {
         this.name = name;
-        HashMap<String, String> attendance1 = this.attendance;
-        new HashMap<>();
+        this.grades = new ArrayList<>();
     }
-
-    public Student() {
-
-    }
-
     public String getName() {
-        return name;
+        return this.name;
     }
+//     Using generate
+//    public String getName() {
+//        return name;
+//    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setGradeAverage(String gradeAverage) {
-        this.gradeAverage = gradeAverage;
-    }
 
     public void addGrade(int grade) {
         grades.add(grade);
     }
 
     public double getGradeAverage() {
-        int sum = 0;
-        for (int grade : grades) {
-            sum += grade;
-        }
-        return (double) sum / grades.size();
+       double sum = 0;
+
+       for (Integer grade : grades) {
+           sum += grade;
+
+       }
+        return sum / grades.size();
     }
 }
