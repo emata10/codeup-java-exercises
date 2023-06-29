@@ -1,44 +1,43 @@
 package grades;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-class Student {
+public class Student {
     private String name;
-    private ArrayList<Integer> grades;
-    private String gradesAsString;
+    private HashMap<String, String> attendance;
 
-    public Student(String name, int[] ints) {
+    public Student(String name) {
         this.name = name;
-        this.grades = new ArrayList<>();
+        HashMap<String, String> attendance1 = this.attendance;
+        new HashMap<>();
     }
 
-    public Student(String johnDoe) {
-    }
+    public Student() {
 
-    // Getters and setters for name and grades properties
+    }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGradeAverage(String gradeAverage) {
+        this.gradeAverage = gradeAverage;
+    }
+
     public void addGrade(int grade) {
         grades.add(grade);
-
     }
 
     public double getGradeAverage() {
-        if (grades.isEmpty()) {
-            return 0.0;//return zero if there are no grades
-        }
-        double sum = 0;
+        int sum = 0;
         for (int grade : grades) {
             sum += grade;
         }
-        return sum / grades.size();
-
-    }
-
-    public double getGradesAsString() {
-        return getGradeAverage();
+        return (double) sum / grades.size();
     }
 }

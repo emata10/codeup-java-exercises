@@ -1,17 +1,26 @@
 package grades;
+
 public class StudentTest {
     public static void main(String[] args) {
+        //Create to student objects
         Student student1 = new Student("John Doe");
+        Student student2 = new Student("Jane Smith");
+
+        //Add grades to each student
+
+        student1.addGrade(80);
         student1.addGrade(90);
-        student1.addGrade(85);
-        student1.addGrade(95);
+        student1.addGrade(75);
 
-        Student  student2 = new Student("Jane Smith");
-        student2.addGrade(80);
-        student2.addGrade(75);
+        student2.addGrade(95);
         student2.addGrade(85);
+        student2.addGrade(88);
 
-        System.out.println(student1.getName() + "'s average grade: " + student1.getGradeAverage());
-        System.out.println(student2.getName() + "'s average grade: " + student2.getGradeAverage());
+        //Retrieve and print the names and grades of each student
+        System.out.println("Student 1" + student1.getName());
+        System.out.println("Grades: " + student1.getGradeAverage());
+
+        System.out.println("Student 2" + student1.getName());
+        System.out.println("Grades: " + student1.getGradeAverage());
     }
 }
