@@ -1,100 +1,101 @@
 package util;
 import java.util.Scanner;
  public class Input {
-      static Scanner scanner;
+     Private Scanner
+     scanner;
 
      public Input() {
          this.scanner = new Scanner(System.in);
      }
 
-     public static String getString() {
-         return scanner.nextLine();
+     public String getString() {
+         System.out.println("Type a String...");
+         return this.scanner.nextLine();
      }
 
-     public boolean yesNo() {
-
-         String input = scanner.nextLine().toLowerCase();
-         return input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes");
+     public String getString(String prompt) {
+         System.out.println(prompt);
+         return this.scanner.nextLine();
      }
 
-     public int getInt(int min, int max, String s) {
-         int userInput;
-         do {
-             System.out.printf("Enter an integer between %d and %d: ", min, max);
-             while (!scanner.hasNextInt()) {
-                 String invalidInput = scanner.next();
-                 System.out.printf("Invalid input: %s. Please enter an integer between %d and %d: ", invalidInput, min, max);
-             }
-             userInput = scanner.nextInt();
-         } while (userInput < min || userInput > max);
+     public Boolean yesNo() {
+         System.out.println("Yes or No?");
 
-         this.scanner.nextLine();
-         return userInput;
-     }
+         String userInput = this.scanner.nextLine();
 
-     public static int getInt(String s) {
-         while (!scanner.hasNextInt()) {
-             String invalidInput = scanner.next();
-             System.out.printf("Invalid input: %s. Please enter an integer: ", invalidInput);
+         userInput = userInput.toLowerCase();
+
+         switch (userInput) {
+             case ("no"):
+                 return false;
+             case ("n"):
+                 return false;
+             case ("nope"):
+                 return false;
+             case ("denied"):
+                 return false;
+             case ("uh uh"):
+                 return false;
+             case ("yes"):
+                 return true;
+             case ("y"):
+                 return true;
+             case ("yep"):
+                 return true;
+             case ("sure"):
+                 return true;
+             case ("si"):
+                 return true;
+             case ("uh huh"):
+                 return true;
+             case ("approved"):
+                 return true;
+             case ("maybe"):
+                 System.out.println("Ain't you cute?");
+                 return yesNo();
+             default:
+                 System.out.println("Input is unacceptable");
+                 return yesNo();
          }
-         int userInput = scanner.nextInt();
-         scanner.nextLine();
-         return userInput;
      }
 
-     public double getDouble(double min, double max) {
-         double userInput;
-         do {
-             System.out.printf("Enter a number between %.1f and %.1f: ", min, max);
-             while (!scanner.hasNextDouble()) {
-                 String invalidInput = scanner.next();
-                 System.out.printf("Invalid input: %s. Please enter a number between %.1f and %.1f: ", invalidInput, min, max);
-             }
-             userInput = scanner.nextDouble();
-         } while (userInput < min || userInput > max);
-
-         scanner.nextLine();
-         return userInput;
-     }
-
-     public double getDouble() {
-         while (!scanner.hasNextDouble()) {
-             String invalidInput = scanner.next();
-             System.out.printf("Invalid input: %s. Please enter a decimal number: ", invalidInput);
+     public int getInt() {
+         try {
+             return Integer.valueOf(getString("Please enter an Int"));
+         } catch (NumberFormatException e) {
+             System.out.println("Hey, that's not gonna work");
+             return getInt();
          }
-         double userInput = scanner.nextDouble();
-         scanner.nextLine();
-         return userInput;
      }
 
+     public int getInt(int min, int max) {
+         System.out.println("Please enter an a number within the range");
+         int userInput = this.scanner.nextInt();
+         if (userInput >= min && userInput <= max) {
+             return userInput;
+         } else {
+             return getInt(min, max);
+         }
+     }
+
+     public int getHex() {
+         try {
+             return Integer.valueOf(getString("Please enter a hexadecimal number");
+         } catch(NumberFormatException e) {
+             System.out.println("Hey that's not going to work....");
+             return getInt();
+         }
+     }
+
+     public int getBinary() {
+         try {
+             return Integer.valueOf(getString("Please enter a binary number"), 2);
+         } catch (NumberFormatException e) {
+             System.out.println("Hey, that's not gonna work...");
+             return getInt();
+         }
+     }
+ }
 
 
-//file: InputTest.java
-     public static void main(String[] args) {
-        Input input = new Input();
 
-        System.out.print("Enter a string: ");
-        String stringInput = input.getString();
-        System.out.printf("You entered: %s%n", stringInput);
-
-        System.out.print("Enter yes/no: ");
-        boolean yesNoInput = input.yesNo();
-        System.out.printf("You entered: %b%n", yesNoInput);
-
-        System.out.print("Enter an integer between 1 and 10: ");
-        int intRangeInput = input.getInt(1, 10, "Enter your choice: ");
-        System.out.printf("You entered: %d%n", intRangeInput);
-
-        System.out.print("Enter an integer: ");
-        int intInput = input.getInt("Enter your choice: ");
-        System.out.printf("You entered: %d%n", intInput);
-
-        System.out.print("Enter a decimal number between 1.0 and 10.0: ");
-        double doubleRangeInput = input.getDouble(1.0, 10.0);
-        System.out.printf("You entered: %.2f%n", doubleRangeInput);
-
-        System.out.print("Enter a decimal number: ");
-        double doubleInput = input.getDouble();
-        System.out.printf("You entered: %.2f%n", doubleInput);
-    }
-}
