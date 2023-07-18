@@ -94,6 +94,9 @@ import java.util.Scanner;
              return getInt(0, 2, "Enter your choice: ");
          }
      }
+
+     public double getDouble() {
+     }
  }
 
 
